@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="644.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFrameController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <BorderPane prefHeight="600.0" prefWidth="532.0" BorderPane.alignment="CENTER">
+         <top>
+            <AnchorPane prefHeight="155.0" prefWidth="777.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="idLabel" layoutX="14.0" layoutY="14.0" text="ID:" AnchorPane.leftAnchor="14.0" />
+                  <Label layoutX="11.0" layoutY="43.0" text="タイトル:" />
+                  <TextField fx:id="titleTextField" layoutX="59.0" layoutY="40.0" AnchorPane.leftAnchor="59.0" />
+                  <Label layoutX="14.0" layoutY="82.0" text="著者:" AnchorPane.leftAnchor="14.0" />
+                  <TextField fx:id="authorTextField" layoutX="59.0" layoutY="78.0" AnchorPane.leftAnchor="59.0" />
+                  <Label layoutX="270.0" layoutY="82.0" text="ISBN:" AnchorPane.leftAnchor="271.0" />
+                  <TextField layoutX="307.0" layoutY="78.0" />
+                  <TextField layoutX="307.0" layoutY="78.0" />
+                  <TextField fx:id="isbnTextField" layoutX="307.0" layoutY="78.0" onAction="#isbnTextField_Action" />
+                  <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="200.0" layoutX="563.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="1.0" />
+                  <Label layoutX="271.0" layoutY="43.0" text="既読:" />
+                  <ToggleButton fx:id="readToggleButton" layoutX="307.0" layoutY="39.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="139.0" text="未読" />
+                  <Label layoutX="16.0" layoutY="123.0" text="発売日:" />
+                  <Label fx:id="releaseLabel" layoutX="59.0" layoutY="123.0" prefHeight="15.0" prefWidth="138.0" text="0000/00/00" />
+                  <Button fx:id="addBookButton" layoutX="361.0" layoutY="152.0" mnemonicParsing="false" onAction="#addBookButton_Click" prefHeight="35.0" prefWidth="84.0" text="追加" />
+                  <Label layoutX="271.0" layoutY="116.0" text="URL:" />
+                  <TextField fx:id="imageURLTextField" layoutX="307.0" layoutY="112.0" onAction="#imageURLTextField_Action" />
+                  <Button fx:id="clearFieldButton" layoutX="492.0" layoutY="8.0" mnemonicParsing="false" onAction="#clearFieldButton_Click" prefHeight="35.0" prefWidth="43.0" text="X" textFill="RED" />
+               </children></AnchorPane>
+         </top>
+         <right>
+            <FlowPane orientation="VERTICAL" prefHeight="298.0" prefWidth="217.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButton_Click" prefHeight="40.0" prefWidth="150.0" text="検索" textFill="#0095ff">
+                     <FlowPane.margin>
+                        <Insets left="30.0" top="10.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateButton_Click" prefHeight="40.0" prefWidth="150.0" text="更新" textFill="#00ff22">
+                     <FlowPane.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButton_Click" prefHeight="40.0" prefWidth="150.0" text="削除" textFill="RED">
+                     <FlowPane.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButton_Click" prefHeight="40.0" prefWidth="150.0" text="追加" textFill="#ffbf00">
+                     <FlowPane.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearButton_Click" prefHeight="40.0" prefWidth="150.0" text="クリア" textFill="#d00303">
+                     <FlowPane.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </FlowPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </FlowPane>
+         </right>
+         <center>
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center></BorderPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="99.0" prefWidth="777.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="consoleTextArea" layoutX="-2.0" layoutY="-1.0" prefHeight="116.0" prefWidth="777.0" />
+         </children></AnchorPane>
+   </bottom>
+</BorderPane>
